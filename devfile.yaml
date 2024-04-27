@@ -1,1 +1,21 @@
 ---
+metadata:
+  description: Example deploy
+  language: Python
+  name: weather
+  projectType: Python
+  provider: Red Hat Training
+  version: 3.0.0
+schemaVersion: 2.2.0
+components:
+- image:
+    dockerfile:
+      buildContext: .
+      rootRequired: false
+      uri: docker/Dockerfile
+    imageName: quay.io/gexiao/httpd-devfile:latest
+  name: build
+commands:
+- apply:
+    component: build
+  id: build-image
